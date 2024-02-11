@@ -19,7 +19,7 @@ function App() {
     const q = query(jobsRef, orderBy("postedOn", "desc"));
     const req = await getDocs(q);
     req.forEach((job) => {
-      // console.log(doc.id, " => ", doc.data());
+      // console.log(job.id, " => ", job.data());
       tempJobs.push({
         ...job.data(),
         id: job.id,
@@ -65,9 +65,9 @@ function App() {
         <Header />
         <SearchBar fetchJobsCustom={fetchJobsCustom} />
         {customSearch && (
-          <button onClick={fetchJobs} className="flex pl-[1250px] mb-2">
-            <p className="px-12 py-2 rounded-md text-white bg-blue-800">
-              Clear Filter
+          <button onClick={fetchJobs} className="flex pl-[1000px] mb-2">
+            <p className="bg-blue-500 px-10 py-2 rounded-md text-white">
+              Clear Filters
             </p>
           </button>
         )}
